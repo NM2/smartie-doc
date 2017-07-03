@@ -1,6 +1,5 @@
 SmarTIE Manual
 ==================
-[TOC]
 
 ##Introduction
 SmarTIE is a platform for monitoring and troubleshooting a network infrastructure.
