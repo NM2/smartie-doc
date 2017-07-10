@@ -1,0 +1,87 @@
+template:
+    directory: ./website
+
+# Base URL of the published website
+baseUrl: https://nm2.github.io/smartie-doc
+
+title: SmarTIE Doc
+subTitle: SmarTIE v3.0 Documentation
+
+# The left menu bar
+menu:
+    sections:
+            main:
+                name: Main
+                items:
+                    intro:
+                        text: Introduction
+                        relativeUrl: index.html#introduction
+                    login:
+                        text: Login
+                        relativeUrl: index.html#login
+            passive-side:
+                name: Passive 
+                items:
+                    home:
+                        text: Home
+                        relativeUrl: index.html#home
+                    features:
+                        text: Common features
+                        relativeUrl: index.html#common-features
+                    dashboard:
+                        text: Dashboard
+                        relativeUrl: index.html#dashboard
+                    timebased:
+                        text: Time based
+                        relativeUrl: index.html#time-based
+                    top:
+                        text: Top N
+                        relativeUrl: index.html#top-n
+                    anomalies:
+                        text: Anomalies
+                        relativeUrl: index.html#anomalies
+                    report:
+                        text: Report
+                        relativeUrl: index.html#report
+                    settings:
+                        text: Settings
+                        relativeUrl: index.html#settings
+            active-side:
+                name: Active
+                items:
+                    home:
+                        text: Home
+                        relativeUrl: index.html#home-1
+                    agents:
+                        text: Agents
+                        relativeUrl: index.html#agents
+                    customers:
+                        text: Customers
+                        relativeUrl: index.html#customers
+                    plans:
+                        text: Plans
+                        relativeUrl: index.html#plans
+                    networks:
+                        text: Access networks
+                        relativeUrl: index.html#access-networks
+                    results:
+                        text: Results
+                        relativeUrl: index.html#results
+                    metrics:
+                        text: Metrics
+                        relativeUrl: index.html#metrics
+                    servers:
+                        text: Measure servers
+                        relativeUrl: index.html#measure-servers
+                    experiments:
+                        text: Experiments
+                        relativeUrl: index.html#experiments
+                    campaigns:
+                        text: Campaigns
+                        relativeUrl: index.html#campaigns
+                    schedules:
+                        text: Schedules
+                        relativeUrl: index.html#schedules
+                    locks:
+                        text: Locks
+                        relativeUrl: index.html#locks
