@@ -2,40 +2,42 @@
 
 ## Introduction
 
-SmarTIE is a platform for monitoring and troubleshooting a network infrastructure.
+SmarTIE is the first monitoring solution that effectively combines active and passive techniques to offer a unique visibility on usage, performance and security of network infrastructures and applications.
 
-It implements an intermediate approach between DPI-based and flow-based traffic inspections, providing a highly-interactive web interface with information-dense real-time charts, maps and data, all based upon a high-performance classification core.
+This platform implements an intermediate approach between DPI-based and flow-based traffic inspections, providing a highly-interactive web interface with information-dense real-time charts, maps and data, all based upon a high-performance classification core.
 
-The SmarTIE platform is composed by
+SmarTIE relies on 3 main components:
 
-*   **SmarTIE controller**: main component of the platform. It collects data sent from distributed probes, analyzes it to produce useful metadata, and stores it in an efficient database structure. The controller exposes a rich web interface from which users can view the stored data in various graphical representations (pie charts, stacked area charts, line charts, horizontal bar charts) in real-time or regarding a defined interval in the past. Each user can customize the set of views in his dashboard (see Dashboard section). The controller is also able to perform anomaly detection on the data provided by the probes, immediately notifying the user if something unexpected happens.
-*   **SmarTIE probes**: lightweight elements that classify the network traffic captured at strategical observation points and send periodical reports to the controller.
-*   **Netflow/IPfix probes**: standard network devices configured to send periodical traffic records in Netflow/IPfix format to the controller.
+*   **SmarTIE controller**: A logically centralized Management and Control System coordinates all the probes to perform the measurements on the network and collects flow-level reports produced by the agents and other network devices. This module performs analytics on such results, in order to derive customizable views with various graphical representations (pie charts, stacked area charts, line charts, horizontal bar charts). The controller is also able to perform anomaly detection, immediately notifying the user if something unexpected happens. All the observed traffic is maintained at different granularities for a configurable period of time (up to years) in order to offer interactive historical views and generate reports, which can be exported in different formats.
+*   **SmarTIE probes**: Lightweight elements that classify the network traffic captured at strategical observation points and send periodical reports to the controller.
+*   **Netflow/IPfix probes**: Standard network devices configured to send periodical traffic records in Netflow/IPfix format to the controller.
 
 SmarTIE is based upon mature open-source projects, bleeding-edge research outcomes and patented technology, and built on a stable and malware-resistant UNIX platform.
 
 ## Login
 
-Once the controller is activated, a user can launch the web UI in the browser connecting to the ip address of the SmarTIE controller. The user will see a login form showing:
+Once the controller is activated, to access the Web Dashboard, users simply need to enter their username and password at the private URL of their SmarTIE controller.
 
 ![login](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/login.png)
 
+Fields available:
+
 *   an input box to insert the username
 *   an input box to insert the password
-*   the button "Recovery" allows a user to recover the authentication credentials
-*   the button "Login" starts the authentication process
+*   the "Recovery" button allows a user to recover the authentication credentials
+*   the "Login" button starts the authentication process
 
-If the username or the password is wrong, one of the following messages is shown.
+If the username or the password are wrong, one of the following messages is shown.
 
 ![login-error](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/login-error.png)
 
-If your credentials are right you will be redirected to the [Dashboard](#dashboard) page.
+If the credentials are correct the user is redirected to the [Dashboard](#dashboard) page.
 
 ## Passive Side
 ### Home
 After logging in, the user arrives at the Home tab, which contains a map and a number of boxes that are designed to give a quick overview on the controller status.
 
-The map is the most prominent object in the home tab and it shows where the probes, connected to the controller, are geographically located. It is possible to zoom in and out on the map using the "+" and "-" buttons placed in the top-left corner of the tab. The blue points on the map represent the probes belonging to the platform and the number in the icon shows the amount of probes placed in that location. When zooming out on the map two or more nearby probes can be collapsed in one point.
+The map is the most prominent object in the home tab and it shows where the probes, connected to the controller, are geographically located. It is possible to zoom in and out on the map using the "+" and "-" buttons placed in the top-left corner of the tab. The blue points on the map represent the probes belonging to the platform and the number in the icon shows the amount of probes placed in that location. When zooming out on the map two or more nearby probes are collapsed in one point.
 
 ![home](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home.png)
 
@@ -57,11 +59,11 @@ Summary
 
 #### **Details view**
 
-Clicking on a probes cluster on the map opens a details view on the bottom of the tab. The details table lists all the probes placed around that location giving a general overview on their status as shown below.
+Clicking on a probes cluster on the map opens a details view on the bottom of the tab. The details table lists all the probes placed around that location giving a general overview on their status.
 
 ![home-probes-details-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-probes-details-view.png)
 
-The globe icon placed on the top-left corner of the details view gives an hint on the shown list. If the icon is green, the view only shows the probes available in specific location. When the user clicks on the icon, it turns grey and the table shows all the probes associated to the controller.
+The globe icon, placed on the top-left corner of the details view, gives an hint on the shown list. If the icon is green, the view only shows the probes available in specific location. When the user clicks on the icon, it turns grey and the table shows all the probes associated to the controller.
 
 Using the input boxes on the top bar of the table, the user can filter the probes by every field available:
 
@@ -84,27 +86,27 @@ Features common to several sections of the user interface are described in the f
 
 #### **Pause and change interval**
 
-All the graphs reported by SmarTIE user interface refer to a well-defined time interval. The reference time interval is reported into an orange box, as shown below.
+All the graphs reported on the SmarTIE user interface refer to a well-defined time interval. The time interval is reported into an orange box.
 
 ![interval](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-interval.png)
 
-By default, all graphs show live data about the last two hours. When new data is received, all graphs are immediately updated and the reference interval advances in time accordingly. In order to focus on a specific time interval, it is necessary to interrupt live reporting (i.e., by clicking on the pause button). When in pause mode, it is also possible to change the interval to have access to the historical data.
+By default, all graphs show live data about the last two hours. When new data is received, all the graphs are immediately updated and the reference interval advances in time accordingly. In order to focus on a specific time interval, it is necessary to interrupt live reporting (i.e., by clicking on the pause button). When in pause mode, it is also possible to change the interval to have access to the historical data.
 
-By clicking on the pause button, the selection of a new interval can be performed as shown in the next figure.
+By clicking on the pause button, a different interval can be chosen as shown in the next figure.
 
 ![interval-change](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-change-interval.png)
 
 ![interval-selector](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-interval-selector.png)
 
-Clicking on the play button will bring the interval back to the last two hours and re-enable live reporting.
+Clicking on the play button brings the interval back to the last two hours and re-enables live reporting.
 
 #### **Probe selection**
 
-Some user interface sections allow to look at data collected by one probe or aggregate in turn. The choice can be done by using the selector shown in the following example.
+Some sections allow to look at data collected by one probe or an aggregate in turn. The choice is done using the selector shown in the following example.
 
 ![probes-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/probes-list.png)
 
-The selector lists probes divided in three groups depending on their type:
+The selector lists the probes divided in three groups depending on their type:
 
 *   **Aggregate (A):** a virtual probe aggregating data collected by different probes all belonging to the same group. The list contains an aggregate for each defined group. The "Aggregate" virtual probe includes data from ALL the probes.
 *   **SmarTIE (S):** a physical or virtual SmarTIE probe.
@@ -112,35 +114,34 @@ The selector lists probes divided in three groups depending on their type:
 
 Moreover, each probe in the selector also reports its status:
 
-*   **Active (green):** the probe is up and running and periodically reports collected data to the controller.
-*   **Warning (yellow):** the probe hasn't reported collected data at the expected time for less than 5 minutes.
-*   **Critical (red):** the probe hasn't reported collected data at the expected time for more than 5 minutes.
-*   **Disabled (grey):** the probe was explicitly disabled, thus no new data is collected from it.
+*   **Active (green):** the probe is up and running and periodically reports collected data to the controller
+*   **Warning (yellow):** the probe hasn't reported collected data at the expected time for less than 5 minutes
+*   **Critical (red):** the probe hasn't reported collected data at the expected time for more than 5 minutes
+*   **Disabled (grey):** the probe was explicitly disabled, thus no new data is collected from it
 
 #### **Aggregation criterion selection**
 
-SmarTIE user interface reports depend on aggregation criteria applied to collected raw data. Some user interface sections allow to look at data aggregated using only one criterion per time.
-           The choice can be done using the selector shown in the following example.
+The SmarTIE user interface reports depend on the aggregation criteria applied to the collected raw data. Some user interface sections allow to look at the aggregated data using only one criterion per time. The choice can be done using the selector shown in the following example.
 
 ![add-monitor-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/aggregation-criteria-list.png)
 
 The available aggregation criteria are listed below:
 
-*   **Application:** aggregates traffic flows depending on source applications.
-*   **Category:**  aggregates traffic flows depending on the category of source applications.
-*   **Source/Destination IP:** aggregates traffic flows depending on source/destination IP addresses.
-*   **Source/Destination AS:** aggregates traffic flows depending on source/destination Autonomous Systems.
-*   **Source/Destination Company:** aggregates traffic flows depending on source/destination Companies.
-*   **Source/Destination Country:** aggregates traffic flows depending on source/destination Countries.
-*   **Source/Destination City:** aggregates traffic flows depending on source/destination City.
+*   **Application:** aggregates traffic flows depending on source applications
+*   **Category:**  aggregates traffic flows depending on the category of source applications
+*   **Source/Destination IP:** aggregates traffic flows depending on source/destination IP addresses
+*   **Source/Destination AS:** aggregates traffic flows depending on source/destination Autonomous Systems
+*   **Source/Destination Company:** aggregates traffic flows depending on source/destination Companies
+*   **Source/Destination Country:** aggregates traffic flows depending on source/destination Countries
+*   **Source/Destination City:** aggregates traffic flows depending on source/destination City
 
 #### **Ordering and local filtering**
 
 Clicking on the cog icon (see the next example image), a window pops up and allows to choose a subset of data sources to show in the charts for the selected aggregation criterion:
 
-*   Top 10 data sources based on traffic volume
-*   Bottom 10 data sources based on traffic volume
-*   Custom subset (of up to 10 items) of data sources (e.g., a user can be interested in looking at HTTP and HTTPS traffic only)
+*   **Top 10** data sources based on traffic volume
+*   **Bottom 10** data sources based on traffic volume
+*   **Custom subset** (of up to 10 items) of data sources (e.g., a user can be interested in looking at HTTP and HTTPS traffic only)
 
 ![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/selection-top-n.png)
 
@@ -148,18 +149,18 @@ Clicking on the cog icon (see the next example image), a window pops up and allo
 
 #### **Global filtering**
 
-Clicking on any label on the charts, showing the data sources for an aggregation criterion, a global filter will be applied to all the reports to include only data from the selected source. For instance, the user can aggregate data by application, filter by a specific application (e.g., clicking SKYPE on the legend) and then change the aggregation criterion to _source cities_ to see from which cities that application traffic is mostly generated. A list of the enabled filters is displayed on the top bar, as shown in the following example.
+Clicking on any label on the charts, showing the data sources for an aggregation criterion, a global filter will be applied to all the reports to include only data from the selected source. For instance, the user can aggregate data by application, filter by a specific application (e.g., clicking SKYPE on the legend) and then change the aggregation criterion to _source cities_ to see from which cities that application traffic is mostly generated. The list of enabled filters is displayed on the top bar, as shown in the image.
 
 ![view-filters-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/applied-filters.png)
 
 All the reports are subject to filters, in the sense that only data matching all the filters is taken into account for generating them.
 
 ### Dashboard
-The dashboard panel allows a user to view a customizable list of charts, saved on a per-user basis. It is always accessible by clicking on the corresponding icon of the navigation bar, as shown below.
+The dashboard panel allows a user to view a customizable list of charts, saved on a per-user basis. It is always accessible by clicking on the corresponding icon of the navigation bar.
 
 ![dashboard](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/dashboard-icon.png)
 
-When a user logs in for the first time, the dashboard is empty and a new chart, also called performance monitor, can be added by clicking on the "add a new performance monitor button", as shown in the following example.
+When a user logs in for the first time, the dashboard is empty and a new chart, also called performance monitor, can be added by clicking on the _"add a new performance monitor button"_.
 
 ![add-monitor](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/dashboard-add-monitor.png)
 
@@ -172,9 +173,7 @@ Clicking on the add button opens an overlay window, which allows to configure a 
 
 ![add-monitor-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/add-performance-monitor.png)
 
-Clicking on the cancel button aborts the operation, thus no chart is added to the dashboard.
-
-Clicking on the add button appends a new performance monitor to the dashboard: an example of dashboard monitor is shown in the following image.
+Clicking on the cancel button aborts the operation, thus no chart is added to the dashboard. Clicking on the add button appends a new performance monitor to the dashboard.
 
 ![monitor-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/performance-monitor.png)
 
@@ -182,7 +181,7 @@ The chart above shows the top 10 average throughputs observed from the selected 
 
 ![monitor-example-hover](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/tooltip-performance-monitor.png)
 
-By hovering on each item of the chart, it is possible to see the average, minimum and maximum values assumed by the selected metric in the considered time interval, which is always shown on the top bar of the dashboard section. By default the charts show data about the last two hours of live network traffic.
+By hovering on each item of the chart, it is possible to see the average, minimum and maximum values assumed by the selected metric in the considered time interval ( the default configuration shows data of the last two hours).
 
 IP addresses shown in the graph are sorted by average throughput: the IP address that has the highest average throughput is displayed on the top of the chart. Then, moving clockwise, there are IP addresses with lower values, in a higher to lower order. It is possible to reverse the sorting by clicking on the sort icon. A dashboard monitor can be removed from the dashboard section by clicking on the trash icon.
 
@@ -194,19 +193,17 @@ IP addresses shown in the graph are sorted by average throughput: the IP address
 
 The time-based section displays graphs that show the evolution of the network traffic on the SmarTIE platform over time. It's particularly useful in showing spikes of abnormal network traffic. This view features the following types of graphs:
 
-*   **Stacked area chart:** a graph used to represent cumulated totals over time. It shows trends over time among related attributes. The stacked area chart is like the line chart except that the area below the plotted line is filled in with color to indicate volume.
-*   **Line chart:** a graph used to represent average values of QoS metrics over time.
+*   **Stacked area chart:** a graph used to represent cumulated totals over time. It shows trends over time among related attributes
+*   **Line chart:** a graph used to represent average values of QoS metrics over time
 
 This view depends on which probe and aggregation criterion have been chosen.
 The time-based view shows six charts based on the selection of probes and aggregation criteria used. These charts can be classified in:
 
-*   **Volume:** three stacked area charts that show the volume of observed network traffic, in both directions (upstream and downstream), in terms of bytes, packets and flows per aggregation criterion value (e.g. applications) during the considered interval (by default two hours)
-*   **Round Trip Time:** a line chart that shows the average round trip time per aggregation criterion value over time during the considered interval
-*   **Throughput:** two line charts that show the average upstream and downstream throughput over time per aggregation criterion value during the considered interval
+*   **Volume:** three stacked area charts that show the volume of observed network traffic, in both directions (upstream and downstream), in terms of bytes, packets and flows per aggregation criterion value (e.g. applications) during the considered interval.
+*   **Round Trip Time:** a line chart that shows the average round trip time per aggregation criterion value over time during the considered interval.
+*   **Throughput:** two line charts that show the average upstream and downstream throughput over time per aggregation criterion value during the considered interval.
 
-As shown in the following images, data resolution is reported on the top bar of each graph. The resolution depends directly on the time interval chosen and it becomes bigger as the time interval becomes wider.
-
-Below an example of a stacked area chart (Traffic Volume) and a line chart (Round Trip Time).
+As shown in the following images, data resolution is reported on the top bar of each graph. The resolution directly depends on the chosen time interval and it becomes higher as the time interval becomes wider. In the images below it is available an example of a stacked area chart (Traffic Volume) and a line chart (Round Trip Time).
 
 ![stacked-area-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/stacked-area.png)
 
@@ -221,30 +218,24 @@ A click on the pause button enables the focus feature, which allows to zoom in o
 ![stacked-area-example-zoom](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/stacked-area-zoomed.png)
 
 ### Top N
-The topN section shows the charts of the main metrics (i.e. traffic volume, round-trip time) for the analysis of the network traffic on the SmarTIE platform over a considered interval of time. It's useful to quickly identify the most used data sources per aggregation criterion (e.g. IP address, application) on the network. The number of data sources displayed per aggregation criterion can be set in the [Settings](#settings) section.
+Similarly to the Time based charts, this section presents the the main metrics (i.e. traffic volume, round-trip time) using horizontal bars. The value for each bar is the aggregation for a single metric in the considered interval. This representation is useful to quickly identify the most used data sources per aggregation criterion (e.g. IP address, application) on the network. The number of data sources displayed per aggregation criterion can be set in the [Settings](#settings) section.
 
-*   **Horizontal bar:** is a chart that presents data with horizontal rectangular bars with lengths proportional to the values that they represent.
+The view strictly depends on which probe and aggregation criterion have been chosen, showing six charts classified in:
 
-This view depends on which probe and aggregation criterion have been chosen, showing six charts classified in:
-
-*   **Volume:** three horizontal bar charts that show the volume of observed network traffic, in both directions (upstream and downstream), in terms of bytes, packets and flows, per data source based on the aggregation criterion (e.g. application), during the considered interval (by default two hours).
+*   **Volume:** three horizontal bar charts that show the volume of observed network traffic, in both directions (upstream and downstream), in terms of bytes, packets and flows, per data source based on the aggregation criterion (e.g. application), during the considered interval.
 *   **Round-Trip Time:** a horizontal bar chart that shows the average round-trip over time, per data source based on the aggregation criterion, during the considered interval.
 *   **Throughput:** two horizontal bar charts that show the upstream and downstream throughput over time, per data source based on the aggregation criterion, during the considered interval.
-
-Below an example of a horizontal bar chart.
 
 ![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/horizontal-bar.png)
 
 ### Anomalies
 #### **What is anomaly detection**
 
-The objective of anomaly detection is to reactively detect any anomalous traffic on the monitored network.
-
-The anomaly detector used by SmarTIE analyzes the volume of network traffic in terms of bytes, packets and flows. In order to work properly, it requires at least two days of observed network traffic: if not enough data has been collected, a warning message is displayed. The anomaly detector takes into account at most the traffic observed during the last two weeks, performing a new detection every time new data is received from a SmarTIE probe.
+The objective of anomaly detection is to reactively detect any anomalous traffic on the monitored network. SmarTIE anomaly detector  analyzes the volume of network traffic in terms of bytes, packets and flows. In order to work properly, it requires at least two days of observed network traffic: if not enough data has been collected, a warning message is displayed. The anomaly detector takes into account at most the traffic observed during the last two weeks, performing a new detection every time new data is received from a SmarTIE probe.
 
 #### **Notification**
 
-When a new anomaly is detected, if the user is displaying a section other than "Anomalies", he receives a notification in the form of a popup message containing a link to the anomaly section: the number of unattended anomalies is reported in red on the anomaly topbar menu icon.
+When a new anomaly is detected, if the user is displaying a section other than "_Anomalies_", he receives a notification in the form of a popup message, containing a link to the anomaly section. The number of unattended anomalies is reported in red on the anomaly topbar menu icon.
 
 ![anomaly-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-warning.png)
 
@@ -252,9 +243,7 @@ When a new anomaly is detected, if the user is displaying a section other than "
 
 #### **Anomalies view**
 
-The anomaly section includes a timeseries graph and a table.
-
-The graph shows the traffic volume in terms of bytes for every SmarTIE probe. The chart also includes the aggregate volume represented by the mean value observed across all the probes. By clicking on a probe name in the legend, it is possible to highlight the respective line in the plot.
+The anomaly section includes a timeseries graph and a table. The graph shows the traffic volume in terms of bytes for each probe. The chart also includes the aggregate volume represented by the mean value observed across all the probes. By clicking on a probe name in the legend, it is possible to highlight the respective line in the plot.
 
 When an anomaly is detected, a warning icon is reported in correspondence of the timestamp over the plot. If the anomaly has not been already analyzed, the icon appears in yellow, otherwise it appears in gray-scale.
 
@@ -281,9 +270,7 @@ The other button allows the user to archive the anomaly and classify it as true 
 ![anomaly-table-archived](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-table-analyzed.png)
 
 ### Report
-The report section is opened by clicking on the _report_ button on the topbar menu.
-
-This section allows the user to get a concise report about the platform status and a specific probe during a customizable time interval. It may be particularly useful to investigate the network traffic classified during an attack performed by a malicious host.
+The report section is opened by clicking on the _report_ button on the topbar menu. This section allows the user to get a concise report about the platform status and a specific probe for a customizable time interval. It may be particularly useful to investigate the network traffic classified during an attack performed by a malicious host.
 
 It is possible to choose a start and an end date for the report.
 
@@ -302,7 +289,7 @@ More than one quadruplet can be added to a report. A summary of the items to rep
 
 ![preview](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-preview.png)
 
-Clicking on the _Generate> Report_ button creates the report; moreover, the chosen quadruplets is saved and it will preselected the next time the report section is opened.
+Clicking on the _Generate > Report_ button creates the report; moreover, the chosen quadruplets is saved and it will preselected the next time the report section is opened.
 
 For each item the report shows:
 
@@ -315,13 +302,11 @@ For each item the report shows:
 Clicking on the printer icon on the topbar is possible to print the report or export it as PDF.
 
 ### Settings
-The _settings_ section allows the administrator to customize the configuration of the SmarTIE platform.
-
-It is divided into the following subsections:
+The _settings_ section allows the administrator to customize the configuration of the SmarTIE platform. It is divided into the following subsections:
 
 #### **Controller Settings**
 
-This subsection allows the user to set up options that affect only the controller.
+This subsection allows the admin to set up options that affect only the controller.
 
 *   **IP address**: sets the IP address of the web interface of the controller
 *   **Netmask**: sets the netmask (CIDR notation) associated to the IP address of the web interface of the controller
@@ -333,7 +318,7 @@ This subsection allows the user to set up options that affect only the controlle
 
 The options modified in this subsection affect the controller and the probes alike.
 
-*   **Max number of displayed elements**: limits the number of elements considered in report lists and graphs, e.g. a value of _10_ causes the _top-n_ graph to show the results of the top-10 ranking elements (aggregated according to the filtering and drill-down criteria)
+*   **Max number of displayed elements**: max number of elements considered in report lists and graphs, e.g. a value of _10_ causes the _top-n_ graph to show the results of the top-10 ranking elements (aggregated according to the filtering and drill-down criteria)
 *   **Remote assistance**: this toggle button allows the administrator to enable/disable the remote assistance module
 *   **Anomaly notification**: this toggle is used to enable/disable the notification by email when an anomaly is detected
 *   **Go to active dashboard**: link to the active measurements dashboard
@@ -343,11 +328,11 @@ The options modified in this subsection affect the controller and the probes ali
 If anything changes, on the top bar are displayed:
 
 *   the number of modified elements
-*   two buttons that allow the user to save the changes or restore the controller to the previous state
+*   two buttons that allow the administrator to save the changes or restore the controller to the previous state
 
 ![modified](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/modified-settings-fields.png)
 
-When the _Apply_ button is clicked, the changes are saved and a notification informs the user on whether the operation was successful or any issues occurred.
+If the _Apply_ button is clicked, the changes are saved and a notification informs the admin on whether the operation was successful or an issue occurred.
 
 ![error-probe](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/error-message-settings.png)
 
@@ -357,7 +342,7 @@ When the _Apply_ button is clicked, the changes are saved and a notification inf
 
 #### **Manage Groups**
 
-This subsection allows the administrator to create new groups or delete existing ones. Furthermore, it allows him to add or remove probes from groups.
+This subsection allows the administrator to create new groups or delete existing ones. Furthermore, it gives the ability to add or remove probes from groups.
 
 ![manage-groups](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/manage-groups.png)
 
@@ -369,22 +354,21 @@ When adding a new group, the information required to complete the registration i
 
 This table lists all the probes linked to the controller giving a general overview on their status. A probe can be associated to one or multiple groups, there is a row for every group it belongs to. For each probe the following fields are available:
 
-*   **Serial number**: Unique identifier for each probe
-*   **Group**: Name of the group associated to the probe
-*   **Private IP address**: Private IP address assigned to the probe in the network that it is monitoring
-*   **Public IP address**: Public address used by the probe to communicate with the controller
-*   **Last activity**: Last time the controller received a log from the selected probe
-*   **Active status**: Status of the active side of the probe
-*   **Passive status**: Status of the passive side of the probe
-*   **Registration status**: Toggle button used to enable/disable the passive side of the probe
+*   **Serial number**: unique identifier for each probe
+*   **Group**: name of the group associated to the probe
+*   **Private IP address**: private IP address assigned to the probe in the network that it is monitoring
+*   **Public IP address**: probe public address used to communicate with the controller
+*   **Last activity**: last time the controller received a log from the selected probe
+*   **Active status**: status of the active side of the probe
+*   **Passive status**: status of the passive side of the probe
+*   **Registration status**: toggle button used to enable/disable network passive monitoring on the probe
 
 ![probes-list-settings](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/probes-list-settings.png)
 
 ## Active Side
 
 ### Home
-The Home tab is the first page shown to the user when logging into the active dashboard of the platform. 
-It contains a summary of the measurements in progress on the platform.
+The Home tab is the first page shown to the users when they reach the active dashboard of the platform. It contains a summary of the measurements in progress on the platform.
 
 *   **Interval**: time interval considered for the statistics (e.g., last day, last month, etc.)
 *   **Active agents**: number of active agents in the considered interval
@@ -395,7 +379,7 @@ It contains a summary of the measurements in progress on the platform.
 
 ### Agents
 An agent is a software tool running on a probe, it is in charge of all the active measurements performed on an access network.  The measurements to perform are defined in a list of experiments that the probe periodically requests to the controller.
-According to the NM-2 suite paradigm, every probe can only have one agent running and an agent can only monitor one access network per time. A probe and, consequently, an agent may also be moved to a different location to monitor a distinct access network.
+According to the SmarTIE paradigm, every probe can only have one agent running and an agent can only monitor one access network per time. A probe and, consequently, an agent may also be moved to a different location to monitor a distinct access network.
 
 ![agents-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/agents.png)
 
@@ -458,13 +442,13 @@ Clicking on the link on the bottom-left of the page allows the administrator to 
 ![create-plan](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-plan.png)
 
 ### Access networks
-An access network is a type of telecommunications network which connects subscribers to their immediate service provider. The access networks tab lists all the networks of this type that are or were monitored by the NM-2 suite. The networks are automatically detected by the agents and they are uniquely identified with the MAC and IP addresses of gateway interface visible to the agent.
+An access network is a type of telecommunications network which connects subscribers to their immediate service provider. The access networks tab lists all the networks of this type that are or were monitored using SmarTIE. The networks are automatically detected by the agents and they are uniquely identified with the MAC and IP address of the gateway interface visible to the agent.
 
 ![access-networks-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/access-networks.png)
 
-From this view is possible to have access to the following parameters:
+From this view, the user has access to the following parameters:
 
-*   **ID**: unique identification number given to every plan
+*   **ID**: unique identification number given to the plan
 *   **Plan**: commercial name of the plan in use on the access network
 *   **Throughput DL**: average download throughput (in kbps) measured across all the experiments on the network
 *   **Throughput UL**: average upload throughput (in kbps) measured across all the experiments on the network
@@ -477,7 +461,7 @@ From this view is possible to have access to the following parameters:
 *   **Location**: information about the geographical position of the network
 *   **Actions**: there are three actions available for each network:
 
-    *  **Delete**: clicking on the icon deletes the plan
+    *  **Delete**: clicking on the icon deletes the network
     *   **Edit**: a click on the icon opens a new window where it is possible to edit the network
     *   **Agents**: clicking on the icon shows the full list of agents monitoring the network
 
@@ -617,22 +601,18 @@ Using the link on the bottom-left of the page it is possible to create a new cam
 #### **General details**
 
 *   **Campaign Name**: name of the campaign
-*   **List timeout**: amount of time, in minutes, an agent has to wait before asking an update to the controller for the list of experiments to execute as part of a campaign. When an agent is running experiments for more than one campaign, it uses the minimum timeout value across all of them
+*   **List timeout**: amount of time, in minutes, an agent has to wait before asking an update to the controller for the list of experiments to execute as part of the campaign. When an agent is running experiments for more than one campaign, it uses the minimum timeout value across all of them
 *   **Description**: short description of the campaign
 
-#### **Selection criteria**
+#### **Involved access networks**
 
 In this box the user defines the criteria to select the access networks that will be monitored during the campaign:
 
-*   **Name**: criterion name
-*   **IsFunction**: when checked, it allows the user to use a "Selection Criteria Function" for the field "Access network IDs"
-*   **Access network IDs**: The input value can be a set of access network IDs or one of the "Selection Criteria Function" available in the platform.  Currently the platform supports four functions:
-
-   *   **CfLocality**: it includes in the campaign all the access networks placed in the given locality. If an input is empty it will not be used as a filter to select connection. If two or more inputs are specified only connections matching all the non empty inputs will be selected. (Usage: "$State;$City;$Zip", e.g. "GE;;")
-    *   **CfPlan**: it includes in the campaign all the access networks having the $IDPlan given in input. The IDPlan can be retrieved from the Plans view. ( "$IDPlan", e.g. "1")
-*   **Param**: it is only available when a selection function is used for the previous field. It has to contain the input value for the 
-            			function
-*   **Obligation**: if the checkbox is ticked, the selection criterion is put in "AND" with the other criteria with the same option
+*   **Selection criterion**: list of the available criteria to select the access networks involved in the campaign. Currently, the suite supports 3 different criteria:
+	* **Agent**: the user can select an access network based on the agent that is monitoring it
+	* **Location**: it selects all the access networks placed in a specific location
+	* **Plan**: it selects all the access networks with the selected plan
+*   **Inputs**: based on the chosen selection criterion, it lists one or more tabs to select the location, the agent or the plan to use to identify the networks
 *   **Delete**: it deletes the current criterion
 
 #### **Exported metrics**
@@ -640,11 +620,8 @@ In this box the user defines the criteria to select the access networks that wil
 From this area, the user can define a list of metrics to be exported at the end of the campaign using the available filters:
 
 *   **Name**: name for the exported metric
-*   **Function**: function to use to aggregate the outputs in one single metric. (e.g. average of the outputs produced by each run of an experiment)
-*   **Parameter**: the platform reports a set of statistics for every experiment output (e.g. max, min, mean). This field selects which parameter has to be exported
-*   **Metric ID**: unique ID of the metric to export
-*   **Experiment ID**: in case a metric is returned in output by multiple experiments in the campaign, the user can decide to isolate the results reported by the runs of a single experiment
-*   **Output number**: if an experiment returns more outputs of the same type, it is possible to select only one of them using the number of the output
+*    **Experiment ID**: the user can decide to isolate the results reported by the runs of a single experiment within the set of selected experiments
+*   **Metric ID**: metric to export in the results between those produced by the selected experiment
 *   **Delete**: it deletes the current selection
 
 #### **Experiments list**
@@ -692,3 +669,4 @@ When a user opens the edit tab for a sensitive entity, a temporary lock is acqui
 If a lock expires while a user is editing an entity, all the changes are saved and the user is forced to exit the page. The variations are only saved if they leave the platform in a consistent state.
 
 ![lock](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/lock.png)
+
