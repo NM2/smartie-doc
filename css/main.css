@@ -79,6 +79,11 @@ header.navbar {
 @media (min-width: 768px) {
     #sidebar {
         position:fixed;
+	overflow-y: scroll;
+    	top: 0px;
+    	bottom: 0px;
+    	padding-top: 100px;
+    	padding-bottom: 50px;
     }
 }
 @media (max-width: 960px) {
