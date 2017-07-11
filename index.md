@@ -31,7 +31,7 @@ If the username or the password are wrong, one of the following messages is show
 
 ![login-error](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/login-error.png)
 
-If the credentials are correct the user is redirected to the [Dashboard](#dashboard) page.
+If the credentials are correct the user is redirected to the [dashboard](#dashboard) page.
 
 ## Passive Side
 ### Home
@@ -75,7 +75,7 @@ Using the input boxes on the top bar of the table, the user can filter the probe
 *   **Active status**: Status of the active side of the probe. Clicking on the eye icon, the user is brought to a new window with a full view on the active measurements campaign started on the probe
 *   **Passive status**: Status of the passive side of the probe. A click on the eye icon opens the full time based view for the probe
 
-Clicking on a row in the details view opens a new section showing information regarding the active and passive sides of a probe. The passive tab shows the data collected by the probe in a time based format aggregated by application (For more on the time based section, please refer to [Time based](#timebased)), while the active tab displays information regarding the active measurements campaign started on the probe.
+Clicking on a row in the details view opens a new section showing information regarding the active and passive sides of a probe. The passive tab shows the data collected by the probe in a time based format aggregated by application (for more info on the section, please refer to [time based](#time-based)), while the active tab displays information regarding the active measurements campaign started on the probe.
 
 ![home-passive-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-passive-view.png)
 
@@ -218,7 +218,7 @@ A click on the pause button enables the focus feature, which allows to zoom in o
 ![stacked-area-example-zoom](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/stacked-area-zoomed.png)
 
 ### Top N
-Similarly to the Time based charts, this section presents the the main metrics (i.e. traffic volume, round-trip time) using horizontal bars. The value for each bar is the aggregation for a single metric in the considered interval. This representation is useful to quickly identify the most used data sources per aggregation criterion (e.g. IP address, application) on the network. The number of data sources displayed per aggregation criterion can be set in the [Settings](#settings) section.
+Similarly to the Time based charts, this section presents the the main metrics (i.e. traffic volume, round-trip time) using horizontal bars. The value for each bar is the aggregation for a single metric in the considered interval. This representation is useful to quickly identify the most used data sources per aggregation criterion (e.g. IP address, application) on the network. The number of data sources displayed per aggregation criterion can be set in the [settings](#settings) section.
 
 The view strictly depends on which probe and aggregation criterion have been chosen, showing six charts classified in:
 
