@@ -114,8 +114,14 @@ pre code {
     border: none;
 }
 
-/* To remove underline for links  */
+/* To remove underline for links */
 a.nounderline:link
 {
     text-decoration:none;
+}
+
+/* To center images horizontally */
+img[src*="style=centerme"] {
+    display:block;
+    margin: 0 auto;
 }

@@ -18,7 +18,7 @@ SmarTIE is based upon mature open-source projects, bleeding-edge research outcom
 
 Once the controller is activated, to access the Web Dashboard, users simply need to enter their username and password at the private URL of their SmarTIE controller.
 
-![login](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/login.png)
+![login](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/login.png?style=centerme)
 
 Fields available:
 
@@ -29,7 +29,7 @@ Fields available:
 
 If the username or the password are wrong, one of the following messages is shown.
 
-![login-error](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/login-error.png)
+![login-error](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/login-error.png?style=centerme)
 
 If the credentials are correct the user is redirected to the [dashboard](#dashboard) page.
 
@@ -39,7 +39,7 @@ After logging in, the user arrives at the Home tab, which contains a map and a n
 
 The map is the most prominent object in the home tab and it shows where the probes, connected to the controller, are geographically located. It is possible to zoom in and out on the map using the "+" and "-" buttons placed in the top-left corner of the tab. The blue points on the map represent the probes belonging to the platform and the number in the icon shows the amount of probes placed in that location. When zooming out on the map two or more nearby probes are collapsed in one point.
 
-![home](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home.png)
+![home](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home.png?style=centerme)
 
 The top-right box shows to the user few indicators regarding the status, in the last 5 minutes, of all the probes associated to the controller and an historical view of the active monitoring performed on the network by the platform.
 
@@ -61,7 +61,7 @@ Summary
 
 Clicking on a probes cluster on the map opens a details view on the bottom of the tab. The details table lists all the probes placed around that location giving a general overview on their status.
 
-![home-probes-details-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-probes-details-view.png)
+![home-probes-details-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-probes-details-view.png?style=centerme)
 
 The globe icon, placed on the top-left corner of the details view, gives an hint on the shown list. If the icon is green, the view only shows the probes available in specific location. When the user clicks on the icon, it turns grey and the table shows all the probes associated to the controller.
 
@@ -77,9 +77,9 @@ Using the input boxes on the top bar of the table, the user can filter the probe
 
 Clicking on a row in the details view opens a new section showing information regarding the active and passive sides of a probe. The passive tab shows the data collected by the probe in a time based format aggregated by application (for more info on the section, please refer to [time based](#time-based)), while the active tab displays information regarding the active measurements campaign started on the probe.
 
-![home-passive-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-passive-view.png)
+![home-passive-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-passive-view.png?style=centerme)
 
-![home-active-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-active-view.png)
+![home-active-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-active-view.png?style=centerme)
 
 ### Common features
 Features common to several sections of the user interface are described in the following.
@@ -88,15 +88,15 @@ Features common to several sections of the user interface are described in the f
 
 All the graphs reported on the SmarTIE user interface refer to a well-defined time interval. The time interval is reported into an orange box.
 
-![interval](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-interval.png)
+![interval](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-interval.png?style=centerme)
 
 By default, all graphs show live data about the last two hours. When new data is received, all the graphs are immediately updated and the reference interval advances in time accordingly. In order to focus on a specific time interval, it is necessary to interrupt live reporting (i.e., by clicking on the pause button). When in pause mode, it is also possible to change the interval to have access to the historical data.
 
 By clicking on the pause button, a different interval can be chosen as shown in the next figure.
 
-![interval-change](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-change-interval.png)
+![interval-change](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-change-interval.png?style=centerme)
 
-![interval-selector](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-interval-selector.png)
+![interval-selector](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/general-interval-selector.png?style=centerme)
 
 Clicking on the play button brings the interval back to the last two hours and re-enables live reporting.
 
@@ -104,7 +104,7 @@ Clicking on the play button brings the interval back to the last two hours and r
 
 Some sections allow to look at data collected by one probe or an aggregate in turn. The choice is done using the selector shown in the following example.
 
-![probes-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/probes-list.png)
+![probes-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/probes-list.png?style=centerme)
 
 The selector lists the probes divided in three groups depending on their type:
 
@@ -123,7 +123,7 @@ Moreover, each probe in the selector also reports its status:
 
 The SmarTIE user interface reports depend on the aggregation criteria applied to the collected raw data. Some user interface sections allow to look at the aggregated data using only one criterion per time. The choice can be done using the selector shown in the following example.
 
-![add-monitor-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/aggregation-criteria-list.png)
+![add-monitor-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/aggregation-criteria-list.png?style=centerme)
 
 The available aggregation criteria are listed below:
 
@@ -143,26 +143,26 @@ Clicking on the cog icon (see the next example image), a window pops up and allo
 *   **Bottom 10** data sources based on traffic volume
 *   **Custom subset** (of up to 10 items) of data sources (e.g., a user can be interested in looking at HTTP and HTTPS traffic only)
 
-![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/selection-top-n.png)
+![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/selection-top-n.png?style=centerme)
 
-![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/filters-options.png)
+![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/filters-options.png?style=centerme)
 
 #### **Global filtering**
 
 Clicking on any label on the charts, showing the data sources for an aggregation criterion, a global filter will be applied to all the reports to include only data from the selected source. For instance, the user can aggregate data by application, filter by a specific application (e.g., clicking SKYPE on the legend) and then change the aggregation criterion to _source cities_ to see from which cities that application traffic is mostly generated. The list of enabled filters is displayed on the top bar, as shown in the image.
 
-![view-filters-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/applied-filters.png)
+![view-filters-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/applied-filters.png?style=centerme)
 
 All the reports are subject to filters, in the sense that only data matching all the filters is taken into account for generating them.
 
 ### Dashboard
 The dashboard panel allows a user to view a customizable list of charts, saved on a per-user basis. It is always accessible by clicking on the corresponding icon of the navigation bar.
 
-![dashboard](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/dashboard-icon.png)
+![dashboard](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/dashboard-icon.png?style=centerme)
 
 When a user logs in for the first time, the dashboard is empty and a new chart, also called performance monitor, can be added by clicking on the _"add a new performance monitor button"_.
 
-![add-monitor](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/dashboard-add-monitor.png)
+![add-monitor](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/dashboard-add-monitor.png?style=centerme)
 
 Clicking on the add button opens an overlay window, which allows to configure a new monitor using the options listed below:
 
@@ -171,23 +171,23 @@ Clicking on the add button opens an overlay window, which allows to configure a 
 *   **Aggregation criterion:** the criterion to use to aggregate traffic flows (e.g., by Application, by Source IP, by Destination Country)
 *   **Graph Type:** the type of chart to use for the report (e.g., a pie chart)
 
-![add-monitor-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/add-performance-monitor.png)
+![add-monitor-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/add-performance-monitor.png?style=centerme)
 
 Clicking on the cancel button aborts the operation, thus no chart is added to the dashboard. Clicking on the add button appends a new performance monitor to the dashboard.
 
-![monitor-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/performance-monitor.png)
+![monitor-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/performance-monitor.png?style=centerme)
 
 The chart above shows the top 10 average throughputs observed from the selected probe towards specific destination IPs.
 
-![monitor-example-hover](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/tooltip-performance-monitor.png)
+![monitor-example-hover](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/tooltip-performance-monitor.png?style=centerme)
 
 By hovering on each item of the chart, it is possible to see the average, minimum and maximum values assumed by the selected metric in the considered time interval ( the default configuration shows data of the last two hours).
 
 IP addresses shown in the graph are sorted by average throughput: the IP address that has the highest average throughput is displayed on the top of the chart. Then, moving clockwise, there are IP addresses with lower values, in a higher to lower order. It is possible to reverse the sorting by clicking on the sort icon. A dashboard monitor can be removed from the dashboard section by clicking on the trash icon.
 
-![monitor-example-sort](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/sort-icon-performance-monitor.png)
+![monitor-example-sort](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/sort-icon-performance-monitor.png?style=centerme)
 
-![monitor-example-remove](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/remove-icon-performance-monitor.png)
+![monitor-example-remove](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/remove-icon-performance-monitor.png?style=centerme)
 
 ### Time based
 
@@ -205,17 +205,17 @@ The time-based view shows six charts based on the selection of probes and aggreg
 
 As shown in the following images, data resolution is reported on the top bar of each graph. The resolution directly depends on the chosen time interval and it becomes higher as the time interval becomes wider. In the images below it is available an example of a stacked area chart (Traffic Volume) and a line chart (Round Trip Time).
 
-![stacked-area-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/stacked-area.png)
+![stacked-area-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/stacked-area.png?style=centerme)
 
-![line-chart-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/line-chart.png)
+![line-chart-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/line-chart.png?style=centerme)
 
 A click on the pause button enables the focus feature, which allows to zoom in on a particular subinterval of the considered interval. The zoom is applied to all the charts shown in the view.
 
-![focus-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/zoom-chart.png)
+![focus-example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/zoom-chart.png?style=centerme)
 
-![focus-example-zoom](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/zoom-chart-window.png)
+![focus-example-zoom](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/zoom-chart-window.png?style=centerme)
 
-![stacked-area-example-zoom](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/stacked-area-zoomed.png)
+![stacked-area-example-zoom](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/stacked-area-zoomed.png?style=centerme)
 
 ### Top N
 Similarly to the Time based charts, this section presents the the main metrics (i.e. traffic volume, round-trip time) using horizontal bars. The value for each bar is the aggregation for a single metric in the considered interval. This representation is useful to quickly identify the most used data sources per aggregation criterion (e.g. IP address, application) on the network. The number of data sources displayed per aggregation criterion can be set in the [settings](#settings) section.
@@ -226,7 +226,7 @@ The view strictly depends on which probe and aggregation criterion have been cho
 *   **Round-Trip Time:** a horizontal bar chart that shows the average round-trip over time, per data source based on the aggregation criterion, during the considered interval.
 *   **Throughput:** two horizontal bar charts that show the upstream and downstream throughput over time, per data source based on the aggregation criterion, during the considered interval.
 
-![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/horizontal-bar.png)
+![view-selection-options](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/horizontal-bar.png?style=centerme)
 
 ### Anomalies
 #### **What is anomaly detection**
@@ -237,9 +237,9 @@ The objective of anomaly detection is to reactively detect any anomalous traffic
 
 When a new anomaly is detected, if the user is displaying a section other than "_Anomalies_", he receives a notification in the form of a popup message, containing a link to the anomaly section. The number of unattended anomalies is reported in red on the anomaly topbar menu icon.
 
-![anomaly-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-warning.png)
+![anomaly-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-warning.png?style=centerme)
 
-![anomaly-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-new-anomalies-number.png)
+![anomaly-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-new-anomalies-number.png?style=centerme)
 
 #### **Anomalies view**
 
@@ -247,7 +247,7 @@ The anomaly section includes a timeseries graph and a table. The graph shows the
 
 When an anomaly is detected, a warning icon is reported in correspondence of the timestamp over the plot. If the anomaly has not been already analyzed, the icon appears in yellow, otherwise it appears in gray-scale.
 
-![anomaly-graph](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-graph-anom-new.png)
+![anomaly-graph](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-graph-anom-new.png?style=centerme)
 
 More details about the anomalies are available in the table below the graph. Each row refers to a single anomaly event, containing:
 
@@ -257,24 +257,24 @@ More details about the anomalies are available in the table below the graph. Eac
 *   **Duration**: duration of the anomaly (in seconds)
 *   **Details**: details about the anomaly, including the related SmarTIE probe, the metric (bytes/packets/flows) and the anomalous value detected.
 
-![anomaly-table](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-table.png)
+![anomaly-table](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-table.png?style=centerme)
 
 Each row also includes two buttons. The eye button opens a view reporting fine grained details about all the flows detected by the probe during the anomaly. An example of such view is reported below.
 
-![anomaly-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-details.png)
+![anomaly-details](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-details.png?style=centerme)
 
 The other button allows the user to archive the anomaly and classify it as true or false. Once the anomaly has been archived, the warning icon becomes gray.
 
-![anomaly-archive](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-archive-anomaly.png)
+![anomaly-archive](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-archive-anomaly.png?style=centerme)
 
-![anomaly-table-archived](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-table-analyzed.png)
+![anomaly-table-archived](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/anomalies-table-analyzed.png?style=centerme)
 
 ### Report
 The report section is opened by clicking on the _report_ button on the topbar menu. This section allows the user to get a concise report about the platform status and a specific probe for a customizable time interval. It may be particularly useful to investigate the network traffic classified during an attack performed by a malicious host.
 
 It is possible to choose a start and an end date for the report.
 
-![interval](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-interval.png)
+![interval](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-interval.png?style=centerme)
 
 The report can be customized choosing the quadruplet:
 
@@ -283,11 +283,11 @@ The report can be customized choosing the quadruplet:
 *   **Aggregation criterion:** the classification category the user is interested to view (e.g. _Applications_ or _IP Source_)
 *   **Sorting**: the sorting criterion to use in the report (_top first_ or _bottom first_)
 
-![content](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-content.png)
+![content](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-content.png?style=centerme)
 
 More than one quadruplet can be added to a report. A summary of the items to report is shown on the _report preview_ subsection.
 
-![preview](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-preview.png)
+![preview](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-preview.png?style=centerme)
 
 Clicking on the _Generate > Report_ button creates the report; moreover, the chosen quadruplets is saved and it will preselected the next time the report section is opened.
 
@@ -297,7 +297,7 @@ For each item the report shows:
 *   a pie graph, that is useful to compare the average values for each data source;
 *   a time-based graph, that allows the user to see the usage of the network during the whole interval for each data source.
 
-![example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-example.png)
+![example](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/report-example.png?style=centerme)
 
 Clicking on the printer icon on the topbar is possible to print the report or export it as PDF.
 
@@ -312,7 +312,7 @@ This subsection allows the admin to set up options that affect only the controll
 *   **Netmask**: sets the netmask (CIDR notation) associated to the IP address of the web interface of the controller
 *   **Gateway**: sets the IP address of the default gateway of the controller
 
-![controller](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/controller-settings.png)
+![controller](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/controller-settings.png?style=centerme)
 
 #### **Platform Settings**
 
@@ -323,32 +323,32 @@ The options modified in this subsection affect the controller and the probes ali
 *   **Anomaly notification**: this toggle is used to enable/disable the notification by email when an anomaly is detected
 *   **Go to active dashboard**: link to the active measurements dashboard
 
-![platform](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/platform-settings.png)
+![platform](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/platform-settings.png?style=centerme)
 
 If anything changes, on the top bar are displayed:
 
 *   the number of modified elements
 *   two buttons that allow the administrator to save the changes or restore the controller to the previous state
 
-![modified](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/modified-settings-fields.png)
+![modified](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/modified-settings-fields.png?style=centerme)
 
 If the _Apply_ button is clicked, the changes are saved and a notification informs the admin on whether the operation was successful or an issue occurred.
 
-![error-probe](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/error-message-settings.png)
+![error-probe](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/error-message-settings.png?style=centerme)
 
-![success-probe](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/settings-success-probe.png)
+![success-probe](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/settings-success-probe.png?style=centerme)
 
-![success-platform](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/settings-success-platform.png)
+![success-platform](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/settings-success-platform.png?style=centerme)
 
 #### **Manage Groups**
 
 This subsection allows the administrator to create new groups or delete existing ones. Furthermore, it gives the ability to add or remove probes from groups.
 
-![manage-groups](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/manage-groups.png)
+![manage-groups](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/manage-groups.png?style=centerme)
 
 When adding a new group, the information required to complete the registration is shown in the following image.
 
-![manage-groups](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/add-new-customer.png)
+![manage-groups](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/add-new-customer.png?style=centerme)
 
 #### **Probes List**
 
@@ -363,7 +363,7 @@ This table lists all the probes linked to the controller giving a general overvi
 *   **Passive status**: status of the passive side of the probe
 *   **Registration status**: toggle button used to enable/disable network passive monitoring on the probe
 
-![probes-list-settings](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/probes-list-settings.png)
+![probes-list-settings](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/probes-list-settings.png?style=centerme)
 
 ## Active Side
 
@@ -375,13 +375,13 @@ The Home tab is the first page shown to the users when they reach the active das
 *   **Access networks**: number of monitored access networks in the specific interval
 *   **Measurements**: measurements performed during the interval
 
-![enter image description here](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/active-home.png)
+![enter image description here](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/active-home.png?style=centerme)
 
 ### Agents
 An agent is a software tool running on a probe, it is in charge of all the active measurements performed on an access network.  The measurements to perform are defined in a list of experiments that the probe periodically requests to the controller.
 According to the SmarTIE paradigm, every probe can only have one agent running and an agent can only monitor one access network per time. A probe and, consequently, an agent may also be moved to a different location to monitor a distinct access network.
 
-![agents-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/agents.png)
+![agents-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/agents.png?style=centerme)
 
 The agents panel lists all the agents connected to the controller reporting the following info:
 
@@ -406,7 +406,7 @@ The agents panel lists all the agents connected to the controller reporting the 
 ### Customers
 A customer is the owner of a probe, every customer is allowed to own one or more probes. A probe can be used to monitor only one access network per time, but it may be moved from one location to another, during its lifetime, to monitor a different network.
 
-![customers-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/customers.png)
+![customers-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/customers.png?style=centerme)
 
 Under the customers tab, the administrator is able to see the list of all the users registered on the platform and some useful information regarding each account:
 
@@ -421,7 +421,7 @@ Under the customers tab, the administrator is able to see the list of all the us
 ### Plans
 The plans page lists all the plans defined by the administrator. From this tab is possible to create, edit and delete a plan. Every plan can be associated to one or more access networks.
 
-![plans-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/plans.png)
+![plans-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/plans.png?style=centerme)
 
 The dashboard shows the information shown in the image above for each plan:
 
@@ -439,12 +439,12 @@ The dashboard shows the information shown in the image above for each plan:
 
 Clicking on the link on the bottom-left of the page allows the administrator to create a new plan.
 
-![create-plan](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-plan.png)
+![create-plan](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-plan.png?style=centerme)
 
 ### Access networks
 An access network is a type of telecommunications network which connects subscribers to their immediate service provider. The access networks tab lists all the networks of this type that are or were monitored using SmarTIE. The networks are automatically detected by the agents and they are uniquely identified with the MAC and IP address of the gateway interface visible to the agent.
 
-![access-networks-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/access-networks.png)
+![access-networks-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/access-networks.png?style=centerme)
 
 From this view, the user has access to the following parameters:
 
@@ -465,7 +465,7 @@ From this view, the user has access to the following parameters:
     *   **Edit**: a click on the icon opens a new window where it is possible to edit the network
     *   **Agents**: clicking on the icon shows the full list of agents monitoring the network
 
-![edit-access-network](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/edit-access-network.png)
+![edit-access-network](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/edit-access-network.png?style=centerme)
 
 ### Results
 Once an experiment has been successfully run, its results are avaible in the results page. In this page, the user has access to the results of all the experiments performed on the platform. The list of results can be filtered by multiple otions:
@@ -476,7 +476,7 @@ Once an experiment has been successfully run, its results are avaible in the res
 *   **Experiment**: it lists the results belonging to the specific experiment type
 *   **Metric**: it shows the results of the experiments giving in output the selected metric
 
-![results-filters](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/results-filters.png)
+![results-filters](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/results-filters.png?style=centerme)
 
 Every row shows the following info:
 
@@ -488,12 +488,12 @@ Every row shows the following info:
 *   **Output name**: list of outputs produced by the experiment
 *   **Stats**: most common statistics on the produced output
 
-![results-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/results.png)
+![results-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/results.png?style=centerme)
 
 ### Metrics
 There are many different ways to measure the performance of a network and several metrics are often considered important, like bandwidth, throughput, latency, etc. This section lists all the metrics defined on the platform which can be used for an experiment. From this tab the user is allowed to create, edit and delete a metric.
 
-![metrics-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/metrics.png)
+![metrics-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/metrics.png?style=centerme)
 
 For each metric, the platform reports:
 
@@ -506,7 +506,7 @@ For each metric, the platform reports:
 	*  **Delete**: clicking on the icon deletes the plan
     *   **Edit**: a click on the icon opens a new window where it is possible to acquire a temporary exclusive [lock](#locks) to edit the metric
 
-![edit-metric](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/edit-metric.png)
+![edit-metric](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/edit-metric.png?style=centerme)
 
 Clicking on the link on the bottom-left of the page opens a separate view to add a new metric.
 When a metric is deleted, all the experiments that depend on it stop working.
@@ -514,7 +514,7 @@ When a metric is deleted, all the experiments that depend on it stop working.
 ### Measure servers
 For certain experiments a cooperative counterpart is needed to perform a measurement, in these circumstances an agent uses a measure server. A user can add, edit or delete a measure server from the "Measure Servers" page.
 
-![measure-servers-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/measure-servers.png)
+![measure-servers-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/measure-servers.png?style=centerme)
 
 For each server the following parameters are available:
 
@@ -536,7 +536,7 @@ For each server the following parameters are available:
 ### Experiments
 To actively measure the performance of an access network, a user can define a list of experiments that will be part of a monitoring campaign. The experiments tab lists the experiments created on the platform:
 
-![experiment](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/experiments.png)
+![experiment](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/experiments.png?style=centerme)
 
 *   **ID**: unique identification number given to the experiment
 *   **Experiment Name**: name of the experiment
@@ -550,7 +550,7 @@ To actively measure the performance of an access network, a user can define a li
 
 Using the link on the bottom-left of the page it is possible to create a new experiment from a separate view, as shown in the image below.
 
-![create-experiment](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-experiment.png)
+![create-experiment](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-experiment.png?style=centerme)
 
 #### **General details**
 
@@ -582,7 +582,7 @@ An experiment produces one or more outputs listed under this box. As it happens 
 ### Campaigns
 The NM-2 suite enables any user to create a monitoring campaign on one or more access networks to evaluate the performances. A campaign executes a set of experiments on all the involved networks producing a list of objective metrics. An experiment can only be scheduled and executed on an access network if it is part of a monitoring campaign.
 
-![campaigns-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/campaigns.png)
+![campaigns-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/campaigns.png?style=centerme)
 
 For each campaign the following parameters are available in the general view:
 
@@ -596,7 +596,7 @@ For each campaign the following parameters are available in the general view:
 
 Using the link on the bottom-left of the page it is possible to create a new campaign from a separate view, as shown below.
 
-![create-campaign](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-campaign.png)
+![create-campaign](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-campaign.png?style=centerme)
 
 #### **General details**
 
@@ -631,7 +631,7 @@ This box lists the experiments defined on the platform and the user can tick tho
 ### Schedules
 Once the experiments and the campaings are created, a user needs to define one or more schedules for each experiment belonging to a campaign, otherwise they are never executed.
 
-![schedules-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/schedules.png)
+![schedules-list](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/schedules.png?style=centerme)
 
 The schedules page lists all the schedules defined on the platform and the main information for each of them:
 
@@ -659,7 +659,7 @@ This box allows the user to select an experiment, contained in one of the campai
 
 From this area, the user can select a day of the week (e.g. every Monday), a day of the month (e.g. every 1st) or a full month of the year to indicate the usual interval when the scheduled activity may be run. At the same time, the user can use start and stop time to run the activity at certain intervals on the specific days.
 
-![create-schedule](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-schedule.png)
+![create-schedule](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/create-schedule.png?style=centerme)
 
 ### Locks
 To prevent concurrent changes to sensitive entities in the platform, the NM-2 suite uses a lock mechanism. It helps to prevent circunstances where multiple users try to edit the same resource at the same time.
@@ -668,5 +668,5 @@ When a user opens the edit tab for a sensitive entity, a temporary lock is acqui
 
 If a lock expires while a user is editing an entity, all the changes are saved and the user is forced to exit the page. The variations are only saved if they leave the platform in a consistent state.
 
-![lock](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/lock.png)
+![lock](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/lock.png?style=centerme)
 
