@@ -15,12 +15,17 @@
 
         <header class="navbar navbar-default navbar-fixed-top">
 
-            <a class="navbar-brand" href="{{ baseUrl }}/">
-                {{ title|default('The title') }}
-                <small class="hidden-xs hidden-sm">
-                    {{ subTitle|default('This is the default subtitle!') }}
-                </small>
-            </a>
+            <div class="navbar-brand">
+                <a class="nounderline" href="http://www.nm-2.com" target="_blank">
+                    <img src="images/common/nm2.png">
+                </a>
+                <a class="nounderline" href="{{ baseUrl }}/">
+                    {{ title|default('The title') }}
+                    <small class="hidden-xs hidden-sm">
+                        {{ subTitle|default('This is the default subtitle!') }}
+                    </small>
+                </a>
+            </div>
 
             {% if github is defined %}
                 <a href="https://github.com/{{ github.user }}/{{ github.repo }}">

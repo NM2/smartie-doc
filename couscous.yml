@@ -1,5 +1,6 @@
 template:
     directory: ./website
+    index: index.md
 
 # Base URL of the published website
 baseUrl: https://nm2.github.io/smartie-doc
