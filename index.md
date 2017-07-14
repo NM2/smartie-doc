@@ -77,7 +77,7 @@ Using the input boxes on the top bar of the table, the user can filter the probe
 
 Clicking on a row in the details view opens a new section showing information regarding the active and passive sides of a probe. The passive tab shows the data collected by the probe in a time based format aggregated by application (for more info on the section, please refer to [time based](#time-based)), while the active tab displays information regarding the active measurements campaign started on the probe.
 
-![home-passive-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-passive-view.png?style=centerme)
+![home-passive-view](images/passive/home-passive-view.png?style=centerme)
 
 ![home-active-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-active-view.png?style=centerme)
 
