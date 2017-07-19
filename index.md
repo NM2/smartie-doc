@@ -63,23 +63,24 @@ Clicking on a probes cluster on the map opens a details view on the bottom of th
 
 ![home-probes-details-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-probes-details-view.png?style=centerme)
 
-The globe icon, placed on the top-left corner of the details view, gives an hint on the shown list. If the icon is green, the view only shows the probes available in specific location. When the user clicks on the icon, it turns grey and the table shows all the probes associated to the controller.
+The globe icon, placed on the top-left corner of the details view, gives an hint on the shown list. If the icon is green, the view only shows the probes available in a specific location. When the user clicks on the icon, it turns grey and the table shows all the probes associated to the controller.
 
-Using the input boxes on the top bar of the table, the user can filter the probes by every field available:
-
-*   **Serial number**: Unique identifier for each probe
-*   **Group**: Name of the group associated to the probe
-*   **Private IP address**: Private IP address assigned to the probe in the network that it is monitoring
-*   **Public IP address**: Public address used by the probe to communicate with the controller
-*   **Last activity**: Last time the controller received a log from the selected probe
-*   **Active status**: Status of the active side of the probe. Clicking on the eye icon, the user is brought to a new window with a full view on the active measurements campaign started on the probe
-*   **Passive status**: Status of the passive side of the probe. A click on the eye icon opens the full time based view for the probe
-
-Clicking on a row in the details view opens a new section showing information regarding the active and passive sides of a probe. The passive tab shows the data collected by the probe in a time based format aggregated by application (for more info on the section, please refer to [time based](#time-based)), while the active tab displays information regarding the active measurements campaign started on the probe.
+Clicking on a row in the details view opens a side panel showing information regarding the active and passive sides of a probe. The passive tab shows the data collected by the probe in a time based format aggregated by application (for more info on the section, please refer to [time based](#time-based)) and clicking on the eye icon opens the full time based view for the probe. The active tab displays information regarding the active measurements campaign started on the probe and clicking on its eye icon the user is brought to a new window with a full view on the active measurements campaign started on the probe.
 
 ![home-passive-view](images/passive/home-passive-view.png?style=centerme)
 
 ![home-active-view](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/passive/home-active-view.png?style=centerme)
+
+Using the input boxes on the top bar of the details table, the user can filter the probes by every field available:
+
+*   **Name**: Name of the probe
+*   **Serial number**: Unique identifier for each probe
+*   **Group**: Name of the group associated to the probe
+*   **Private IP address**: Private IP address assigned to the probe in the network that it is monitoring
+*   **Public IP address**: Public IP address used by the probe to communicate with the controller
+*   **Last activity**: Last time the controller received a log from the selected probe
+*   **Active status**: Status of the active side of the probe. Clicking on the eye icon opens the active tab of the side panel
+*   **Passive status**: Status of the passive side of the probe. Clicking on the eye icon opens the passive tab of the side panel
 
 ### Common features
 Features common to several sections of the user interface are described in the following.
