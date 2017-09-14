@@ -164,6 +164,52 @@
                                         </a>
                                     </li>
                                                             </ul>
+                                                    <p class="text-muted">
+                                API
+                            </p>
+
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#api-login">
+                                            API login
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#get-access-network-ids">
+                                            Get access network ids
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#get-access-network-details">
+                                            Get access network details
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#get-campaigns">
+                                            Get campaigns
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#get-metrics">
+                                            Get metrics
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#get-agents">
+                                            Get agents
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#get-measurements">
+                                            Get measurements
+                                        </a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://nm2.github.io/smartie-doc/index.html#get-passive-data">
+                                            Get passive data
+                                        </a>
+                                    </li>
+                                                            </ul>
                         
                     </nav>
 
@@ -716,6 +762,588 @@ When a metric is deleted, all the experiments that depend on it stop working.</p
 <p>When a user opens the edit tab for a sensitive entity, a temporary lock is acquired and a countdown is shown on the top-left corner of the page. By default the lock lasts for 10 minutes, during this time the user can decide to release it and discard all the changes, extend it for other 10 minutes or release the lock and save the changes.</p>
 <p>If a lock expires while a user is editing an entity, all the changes are saved and the user is forced to exit the page. The variations are only saved if they leave the platform in a consistent state.</p>
 <p><img src="https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/lock.png?style=centerme" alt="lock" /></p>
+<h2 id="api">API</h2>
+<h3 id="api-login">API login</h3>
+<p>Used to protect the API from unauthorized accesses. Before using the API methods listed below users must first login with their own platform credentials</p>
+<h4 id="request">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">POST</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/login">http://&lt;controller_ip>[:port]/api/login</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-input">JSON Input</h4>
+<pre><code>{"username": "admin", "password": PasswordSHA1}</code></pre>
+<h4 id="successful-json-response">Successful JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "login executed"
+}</code></pre>
+<h4 id="error-json-response">Error JSON Response</h4>
+<pre><code>{
+  "status": "err",
+  "msg": "Login not executed. User not found."
+}</code></pre>
+<h3 id="get-access-network-ids">Get access network IDs</h3>
+<p>Retrieve all access network IDs in JSON format</p>
+<h4 id="request-1">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">GET</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/active/getAccessNetworkIds">http://&lt;controller_ip>[:port]/api/active/getAccessNetworkIds</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="successful-json-response-1">Successful JSON Response</h4>
+<pre><code>{
+"status": "ok",
+"msg": "access network IDs retrieved successfully",
+"access_network_ids": [{"access_network_id":"11"},{"access_network_id":"9"},{"access_network_id":"13"},{"access_network_id":"8"},{"access_network_id":"12"},{"access_network_id":"15"},{"access_network_id":"4"},{"access_network_id":"2"},{"access_network_id":"3"},{"access_network_id":"5"},{"access_network_id":"7"},{"access_network_id":"10"},{"access_network_id":"6"}]
+}</code></pre>
+<h4 id="error-json-response-1">Error JSON Response</h4>
+<pre><code>{
+"status": "err",
+"msg": "Couldn't retrieve access network IDs"
+}</code></pre>
+<h3 id="get-access-network-details">Get access network details</h3>
+<p>Retrieve access network statistics in JSON format</p>
+<h4 id="request-2">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">POST</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/active/getAccessNetworkDetails">http://&lt;controller_ip>[:port]/api/active/getAccessNetworkDetails</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-input-1">JSON Input</h4>
+<pre><code>{"access_network_id": INTEGER}</code></pre>
+<h4 id="successful-json-response-2">Successful JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "Access network details retrieved successfully",
+  "access_network_details": {
+    "Timestamp": "2017-02-27 11:27:29+01",
+    "access_network_id": "8",
+    "MeasNum": "6638",
+    "hash_mac": "00:1e:06:33:c6:46",
+    "last_id": null,
+    "ISPName": "AT&amp;T",
+    "NominalDownload": "5",
+    "NominalUpload": "5",
+    "id_nation": "US",
+    "ZipCode": "30332",
+    "conn_label": "",
+    "tech_name": "Optical Fiber",
+    "id_tech": "5",
+    "conn_enabled": "t",
+    "calib_date": null,
+    "state_code": "GA",
+    "city": "Atlanta",
+    "campaigns": [
+      {
+        "id": "4",
+        "name": "Non-standard experiments"
+      },
+      {
+        "id": "3",
+        "name": "WebLoadPage campaign"
+      },
+      {
+        "id": "1",
+        "name": "Baseline Performance"
+      },
+      {
+        "id": "2",
+        "name": "RFC"
+      }
+    ],
+    "latency": "0.047",
+    "jitter": "0.00065",
+    "packet_loss": "0.038",
+    "throughput_download": "0",
+    "throughput_upload": "0"
+  }
+}</code></pre>
+<h4 id="error-json-response-2">Error JSON Response</h4>
+<pre><code>{
+"status": "err",
+ "msg": "Couldn't retrieve access network details"
+}</code></pre>
+<h3 id="get-campaigns">Get campaigns</h3>
+<p>Retrieve the campaigns associated to an access network in JSON format</p>
+<h4 id="request-3">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">POST</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/active/getCampaigns">http://&lt;controller_ip>[:port]/api/active/getCampaigns</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-input-2">JSON Input</h4>
+<pre><code>{"access_network_id":"8"}</code></pre>
+<h4 id="successful-json-response-3">Successful JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "Campaigns retrieved successfully",
+  "campaigns": [
+    {
+      "id": "4",
+      "name": "Non-standard experiments"
+    },
+    {
+      "id": "3",
+      "name": "WebLoadPage campaign"
+    },
+    {
+      "id": "1",
+      "name": "Baseline Performance"
+    },
+    {
+      "id": "2",
+      "name": "RFC"
+    }
+  ]
+}</code></pre>
+<h4 id="error-json-response-3">Error JSON Response</h4>
+<pre><code>{
+  "status": "err",
+  "msg": "Couldn't retrieve campaigns"
+}</code></pre>
+<h3 id="get-metrics">Get metrics</h3>
+<p>Retrieve all the metrics, in JSON format, associated to a specific campaign</p>
+<h4 id="request-4">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">POST</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/active/getMetrics">http://&lt;controller_ip>[:port]/api/active/getMetrics</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-input-3">JSON Input</h4>
+<pre><code>{"campaign_id":"8"}</code></pre>
+<h4 id="successful-json-response-4">Successful JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "Metrics retrieved successfully",
+  "metrics": [
+    {
+      "jitter": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "2",
+        "output_number": "",
+        "unit": "s",
+        "name": "Baseline Jitter",
+        "description": "Round-trip latency variation"
+      }
+    },
+    {
+      "latency": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "1",
+        "output_number": "",
+        "unit": "s",
+        "name": "Baseline Delay",
+        "description": "Round-trip latency"
+      }
+    },
+    {
+      "packet_loss": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "3",
+        "output_number": "",
+        "unit": "pps",
+        "name": "Packet Loss",
+        "description": "Packets lost per second"
+      }
+    },
+    {
+      "throughput_dl_tcp": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "4",
+        "output_number": "1",
+        "unit": "Kbps",
+        "name": "Baseline Downstream Throughput",
+        "description": "Throughput from server to probe"
+      }
+    },
+    {
+      "throughput_ul_tcp": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "5",
+        "output_number": "1",
+        "unit": "Kbps",
+        "name": "Baseline Upstream Throughput",
+        "description": "Throughput from probe to server"
+      }
+    }
+  ]
+}</code></pre>
+<h4 id="error-json-response-4">Error JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "Couldn't retrieve metrics"
+}</code></pre>
+<h3 id="get-agents">Get agents</h3>
+<p>Retrieve all the agents in JSON format</p>
+<h4 id="request-5">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">GET</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/active/getAgents">http://&lt;controller_ip>[:port]/api/active/getAgents</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="successful-json-response-5">Successful JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "Agents retrieved successfully",
+  "agents": [
+    {
+      "Nconn": "1",
+      "access_network_id": "2",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1481890385000",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "3",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1486746479825.4",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "8",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1488193568207.1",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "9",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": null,
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "10",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": null,
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "11",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": null,
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "12",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1488193688961.85",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "18",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1488299623810.01",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "8",
+      "UUID": "843203f5-5a8d-e5e4-75f6-8f04879d14e3",
+      "hostname": "STP-6B29CBE6",
+      "IDUser": "6",
+      "OS": "linux",
+      "ins_version": "1.0-r197",
+      "RegistrationTimestamp": "2017-02-15 15:21:22+01",
+      "last_measure_ins": "1488193568207.1",
+      "last_active_ins": null,
+      "time_elapsed": null
+    }
+  ]
+}</code></pre>
+<h4 id="error-json-response-5">Error JSON Response</h4>
+<pre><code>{
+  "status": "err",
+  "msg": "Couldn't retrieve agents"
+}</code></pre>
+<h3 id="get-measurements">Get measurements</h3>
+<p>This method can be used with various input filters. Without any input filter, it simply returns all measurements across all the agents. Adding more input filters permits to refine the dataset</p>
+<h4 id="request-6">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">POST</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/active/getMeasurements">http://&lt;controller_ip>[:port]/api/active/getMeasurements</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-input-4">JSON Input</h4>
+<pre><code>{ "agent_serial_number":"STP-6B29CBE6", "id_metric":2, "id_camp":1, "zip":80140, "id_experiment":13, "tstart":"1486120530", "tend":"1486120531" }</code></pre>
+<p>All input attributes are optional:</p>
+<ul>
+<li>agent_serial_number: reports the measurements from a single agent identified with its serial number
+<ul>
+<li>can be omitted</li>
+</ul></li>
+<li>id_metric: all measurements returning a specific metric
+<ul>
+<li>can be omitted</li>
+</ul></li>
+<li>id_camp: all measurements belonging to a certain campaign
+<ul>
+<li>can be omitted</li>
+</ul></li>
+<li>zip: all measurements performed by agents located at the selected zip code
+<ul>
+<li>can be omitted</li>
+</ul></li>
+<li>id_experiment: all measurements coming from a specific experiment type
+<ul>
+<li>can be omitted</li>
+</ul></li>
+<li>tstart: all measurements performed after the start timestamp. Timestamp has to be provided in seconds
+<ul>
+<li>can be omitted</li>
+</ul></li>
+<li>tend: all measurements performed before the stop timestamp. Timestamp has to be provided in seconds
+<ul>
+<li>can be omitted</li>
+</ul></li>
+<li>page: the page to retrieve
+<ul>
+<li>if omitted retrieves page 0</li>
+</ul></li>
+</ul>
+<h4 id="successful-json-response-6">Successful JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "Measurements retrieved successfully",
+  "measurements": [
+    {
+      "ZipCode": "00544",
+      "id_campaign": "1",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "access_network_id": "3",
+      "Timestamp": "2017-02-03 12:15:30+01",
+      "IDOutput": "19101",
+      "ClientIP": "93.58.231.145",
+      "IPServer": "52.18.216.53",
+      "ParametersValue": "{}",
+      "name": "Baseline Jitter",
+      "unit": "s",
+      "wireless": "f",
+      "stats": "\"max\"=&gt;\"0.003670\", \"min\"=&gt;\"0.000453\", \"var\"=&gt;\"0.00000\", \"mean\"=&gt;\"0.00118\", \"stddev\"=&gt;\"0.00139\", \"5_percentile\"=&gt;\"0.0004668\", \"50_percentile\"=&gt;\"0.000592\", \"95_percentile\"=&gt;\"0.003071\"",
+      "exp_name_it": "Latenza, Jitter e Packet Loss",
+      "exp_name_en": "Delay, Jitter and Packet Loss",
+      "samples": "{0.000675,0.000522,0.000592,0.00367,0.000453}"
+    },
+    {
+      "next_page": 1
+    }
+  ]
+}</code></pre>
+<p>The output contains the special tag “next_page” used to paginate the huge amount of data. It may be used as input filter for the next api call. If the dataset will fit in one api call then next_page is equal to zero</p>
+<h4 id="error-json-response-6">Error JSON Response</h4>
+<pre><code>{
+  "status": "err",
+  "msg": "Couldn't retrieve measurements"
+}</code></pre>
+<h3 id="get-passive-data">Get passive data</h3>
+<p>It takes in input a selection criterion to retrieve the data collected from the passive side of the platform</p>
+<h4 id="request-7">Request</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">POST</td>
+<td style="text-align: center;"><a href="http://&lt;controller_ip>[:port]/api/passive/getData">http://&lt;controller_ip>[:port]/api/passive/getData</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-input-5">JSON Input</h4>
+<pre><code>{"agent_name": "STP-6635A17C", "start": 1488283443000,"end": 1488290640000, "selection_criteria": "app_id"}</code></pre>
+<ul>
+<li>agent_name: name of the agent whose results the user wants to retrieve</li>
+<li>start: all measurements performed after the start timestamp. Timestamp has to be provided in milliseconds</li>
+<li>end: all measurements performed before the stop timestamp. Timestamp has to be provided in milliseconds</li>
+<li>selection_criteria: selection criteria to retrieve filtered results. Currently supported selection criteria are:
+<ul>
+<li>src_ip</li>
+<li>dst_ip</li>
+<li>app_id</li>
+<li>group_id</li>
+<li>src_as</li>
+<li>dst_as</li>
+<li>src_company</li>
+<li>dst_company</li>
+<li>src_country</li>
+<li>dst_country</li>
+<li>src_city</li>
+<li>dst_city</li>
+</ul></li>
+</ul>
+<h4 id="successful-json-response-7">Successful JSON Response</h4>
+<pre><code>{
+  "status": "ok",
+  "msg": "Dataset retrieved successfully",
+  "measurements": [
+    [
+      1488283500000,
+      92,
+      2770,
+      63,
+      13,
+      null,
+      0,
+      "ARP"
+    ],
+    [
+      1488283500000,
+      0,
+      6408,
+      15,
+      4,
+      null,
+      0,
+      "DHCP"
+    ]
+}</code></pre>
+<p>Each element in the “measurements” array contains the following items:</p>
+<ul>
+<li>timestamp: sampling interval starting timestamp (in ms), by default an interval lasts 1 minute</li>
+<li>dw_bytes: downloaded bytes sum in the sampling interval</li>
+<li>up_bytes: uploaded bytes sum in the sampling interval</li>
+<li>total packets: downloaded and uploaded packets sum in the sampling interval</li>
+<li>flows: number of flows in the sampling interval</li>
+<li>avg rtt: the average round-trip time in the sampling interval</li>
+<li>lost pkts: number of lost packets in the sampling interval</li>
+<li>data source: measurement data source. Data sources depends on the selected aggregation criteria</li>
+</ul>
+<h4 id="error-json-response-7">Error JSON Response</h4>
+<pre><code>{
+  "status": "err",
+  "msg": "Couldn't retrieve dataset"
+}</code></pre>
                 </section>
 
             </div>
