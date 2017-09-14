@@ -671,3 +671,599 @@ If a lock expires while a user is editing an entity, all the changes are saved a
 
 ![lock](https://raw.githubusercontent.com/NM2/smartie-doc/master/images/active/lock.png?style=centerme)
 
+## API
+
+### API login
+
+Used to protect the API from unauthorized accesses. Before using the API methods listed below users must first login with their own platform credentials
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| POST | http://&lt;controller_ip>[:port]/api/login |
+
+#### JSON Input
+
+```
+{"username": "admin", "password": PasswordSHA1}
+```
+
+#### Successful JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "login executed"
+}
+```
+
+#### Error JSON Response
+
+```
+{
+  "status": "err",
+  "msg": "Login not executed. User not found."
+}
+```
+
+### Get access network IDs
+
+Retrieve all access network IDs in JSON format
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| GET | http://&lt;controller_ip>[:port]/api/active/getAccessNetworkIds |
+
+#### Successful JSON Response
+
+```
+{
+"status": "ok",
+"msg": "access network IDs retrieved successfully",
+"access_network_ids": [{"access_network_id":"11"},{"access_network_id":"9"},{"access_network_id":"13"},{"access_network_id":"8"},{"access_network_id":"12"},{"access_network_id":"15"},{"access_network_id":"4"},{"access_network_id":"2"},{"access_network_id":"3"},{"access_network_id":"5"},{"access_network_id":"7"},{"access_network_id":"10"},{"access_network_id":"6"}]
+}
+```
+
+#### Error JSON Response
+
+```
+{
+"status": "err",
+"msg": "Couldn't retrieve access network IDs"
+}
+```
+
+### Get access network details
+
+Retrieve access network statistics in JSON format
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| POST | http://&lt;controller_ip>[:port]/api/active/getAccessNetworkDetails |
+
+#### JSON Input
+
+```
+{"access_network_id": INTEGER}
+```
+
+#### Successful JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "Access network details retrieved successfully",
+  "access_network_details": {
+    "Timestamp": "2017-02-27 11:27:29+01",
+    "access_network_id": "8",
+    "MeasNum": "6638",
+    "hash_mac": "00:1e:06:33:c6:46",
+    "last_id": null,
+    "ISPName": "AT&T",
+    "NominalDownload": "5",
+    "NominalUpload": "5",
+    "id_nation": "US",
+    "ZipCode": "30332",
+    "conn_label": "",
+    "tech_name": "Optical Fiber",
+    "id_tech": "5",
+    "conn_enabled": "t",
+    "calib_date": null,
+    "state_code": "GA",
+    "city": "Atlanta",
+    "campaigns": [
+      {
+        "id": "4",
+        "name": "Non-standard experiments"
+      },
+      {
+        "id": "3",
+        "name": "WebLoadPage campaign"
+      },
+      {
+        "id": "1",
+        "name": "Baseline Performance"
+      },
+      {
+        "id": "2",
+        "name": "RFC"
+      }
+    ],
+    "latency": "0.047",
+    "jitter": "0.00065",
+    "packet_loss": "0.038",
+    "throughput_download": "0",
+    "throughput_upload": "0"
+  }
+}
+```
+
+#### Error JSON Response
+
+```
+{
+"status": "err",
+ "msg": "Couldn't retrieve access network details"
+}
+```
+
+### Get campaigns
+
+Retrieve the campaigns associated to an access network in JSON format
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| POST | http://&lt;controller_ip>[:port]/api/active/getCampaigns |
+
+#### JSON Input
+
+```
+{"access_network_id":"8"}
+```
+
+#### Successful JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "Campaigns retrieved successfully",
+  "campaigns": [
+    {
+      "id": "4",
+      "name": "Non-standard experiments"
+    },
+    {
+      "id": "3",
+      "name": "WebLoadPage campaign"
+    },
+    {
+      "id": "1",
+      "name": "Baseline Performance"
+    },
+    {
+      "id": "2",
+      "name": "RFC"
+    }
+  ]
+}
+```
+
+#### Error JSON Response
+
+```
+{
+  "status": "err",
+  "msg": "Couldn't retrieve campaigns"
+}
+```
+
+### Get metrics
+
+Retrieve all the metrics, in JSON format, associated to a specific campaign
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| POST | http://&lt;controller_ip>[:port]/api/active/getMetrics |
+
+#### JSON Input
+
+```
+{"campaign_id":"8"}
+```
+
+#### Successful JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "Metrics retrieved successfully",
+  "metrics": [
+    {
+      "jitter": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "2",
+        "output_number": "",
+        "unit": "s",
+        "name": "Baseline Jitter",
+        "description": "Round-trip latency variation"
+      }
+    },
+    {
+      "latency": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "1",
+        "output_number": "",
+        "unit": "s",
+        "name": "Baseline Delay",
+        "description": "Round-trip latency"
+      }
+    },
+    {
+      "packet_loss": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "3",
+        "output_number": "",
+        "unit": "pps",
+        "name": "Packet Loss",
+        "description": "Packets lost per second"
+      }
+    },
+    {
+      "throughput_dl_tcp": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "4",
+        "output_number": "1",
+        "unit": "Kbps",
+        "name": "Baseline Downstream Throughput",
+        "description": "Throughput from server to probe"
+      }
+    },
+    {
+      "throughput_ul_tcp": {
+        "param": "mean",
+        "id_exp": "0",
+        "function": "avg",
+        "id_metric": "5",
+        "output_number": "1",
+        "unit": "Kbps",
+        "name": "Baseline Upstream Throughput",
+        "description": "Throughput from probe to server"
+      }
+    }
+  ]
+}
+```
+
+#### Error JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "Couldn't retrieve metrics"
+}
+```
+
+### Get agents
+
+Retrieve all the agents in JSON format
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| GET | http://&lt;controller_ip>[:port]/api/active/getAgents |
+
+#### Successful JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "Agents retrieved successfully",
+  "agents": [
+    {
+      "Nconn": "1",
+      "access_network_id": "2",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1481890385000",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "3",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1486746479825.4",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "8",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1488193568207.1",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "9",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": null,
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "10",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": null,
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "11",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": null,
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "12",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1488193688961.85",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "18",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "hostname": "STP-6635A17C",
+      "IDUser": "3",
+      "OS": "linux",
+      "ins_version": "1.0-r299",
+      "RegistrationTimestamp": "2016-12-19 17:56:21+01",
+      "last_measure_ins": "1488299623810.01",
+      "last_active_ins": "1488300306022.27",
+      "time_elapsed": "332.58327"
+    },
+    {
+      "Nconn": "1",
+      "access_network_id": "8",
+      "UUID": "843203f5-5a8d-e5e4-75f6-8f04879d14e3",
+      "hostname": "STP-6B29CBE6",
+      "IDUser": "6",
+      "OS": "linux",
+      "ins_version": "1.0-r197",
+      "RegistrationTimestamp": "2017-02-15 15:21:22+01",
+      "last_measure_ins": "1488193568207.1",
+      "last_active_ins": null,
+      "time_elapsed": null
+    }
+  ]
+}
+```
+
+#### Error JSON Response
+
+```
+{
+  "status": "err",
+  "msg": "Couldn't retrieve agents"
+}
+```
+
+### Get measurements
+
+This method can be used with various input filters. Without any input filter, it simply returns all measurements across all the agents. Adding more input filters permits to refine the dataset
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| POST | http://&lt;controller_ip>[:port]/api/active/getMeasurements |
+
+#### JSON Input
+
+```
+{ "agent_serial_number":"STP-6B29CBE6", "id_metric":2, "id_camp":1, "zip":80140, "id_experiment":13, "tstart":"1486120530", "tend":"1486120531" }
+```
+
+All input attributes are optional:
+* agent_serial_number: reports the measurements from a single agent identified with its serial number
+    * can be omitted
+* id_metric: all measurements returning a specific metric
+    * can be omitted
+* id_camp: all measurements belonging to a certain campaign
+    * can be omitted
+* zip: all measurements performed by agents located at the selected zip code
+    * can be omitted
+* id_experiment: all measurements coming from a specific experiment type
+    * can be omitted
+* tstart: all measurements performed after the start timestamp. Timestamp has to be provided in seconds
+    * can be omitted
+* tend: all measurements performed before the stop timestamp. Timestamp has to be provided in seconds
+    * can be omitted
+* page: the page to retrieve
+    * if omitted retrieves page 0
+
+
+#### Successful JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "Measurements retrieved successfully",
+  "measurements": [
+    {
+      "ZipCode": "00544",
+      "id_campaign": "1",
+      "UUID": "2128d4eb-e194-6854-751e-448e4aae8e37",
+      "access_network_id": "3",
+      "Timestamp": "2017-02-03 12:15:30+01",
+      "IDOutput": "19101",
+      "ClientIP": "93.58.231.145",
+      "IPServer": "52.18.216.53",
+      "ParametersValue": "{}",
+      "name": "Baseline Jitter",
+      "unit": "s",
+      "wireless": "f",
+      "stats": "\"max\"=>\"0.003670\", \"min\"=>\"0.000453\", \"var\"=>\"0.00000\", \"mean\"=>\"0.00118\", \"stddev\"=>\"0.00139\", \"5_percentile\"=>\"0.0004668\", \"50_percentile\"=>\"0.000592\", \"95_percentile\"=>\"0.003071\"",
+      "exp_name_it": "Latenza, Jitter e Packet Loss",
+      "exp_name_en": "Delay, Jitter and Packet Loss",
+      "samples": "{0.000675,0.000522,0.000592,0.00367,0.000453}"
+    },
+    {
+      "next_page": 1
+    }
+  ]
+}
+```
+
+The output contains the special tag “next_page” used to paginate the huge amount of data. It may be used as input filter for the next api call. If the dataset will fit in one api call then next_page is equal to zero
+
+#### Error JSON Response
+
+```
+{
+  "status": "err",
+  "msg": "Couldn't retrieve measurements"
+}
+```
+
+### Get passive data
+
+It takes in input a selection criterion to retrieve the data collected from the passive side of the platform
+
+#### Request
+
+|  Method  |   URL  |
+|:--------:|:------:|
+| POST | http://&lt;controller_ip>[:port]/api/passive/getData |
+
+#### JSON Input
+
+```
+{"agent_name": "STP-6635A17C", "start": 1488283443000,"end": 1488290640000, "selection_criteria": "app_id"}
+```
+
+* agent_name: name of the agent whose results the user wants to retrieve
+* start: all measurements performed after the start timestamp. Timestamp has to be provided in milliseconds
+* end: all measurements performed before the stop timestamp. Timestamp has to be provided in milliseconds
+* selection_criteria: selection criteria to retrieve filtered results. Currently supported selection criteria are:
+    * src_ip
+    * dst_ip
+    * app_id
+    * group_id
+    * src_as
+    * dst_as
+    * src_company
+    * dst_company
+    * src_country
+    * dst_country
+    * src_city
+    * dst_city
+
+
+#### Successful JSON Response
+
+```
+{
+  "status": "ok",
+  "msg": "Dataset retrieved successfully",
+  "measurements": [
+    [
+      1488283500000,
+      92,
+      2770,
+      63,
+      13,
+      null,
+      0,
+      "ARP"
+    ],
+    [
+      1488283500000,
+      0,
+      6408,
+      15,
+      4,
+      null,
+      0,
+      "DHCP"
+    ]
+}
+```
+
+Each element in the “measurements” array contains the following items:
+* timestamp: sampling interval starting timestamp (in ms), by default an interval lasts 1 minute
+* dw_bytes: downloaded bytes sum in the sampling interval
+* up_bytes: uploaded bytes sum in the sampling interval
+* total packets: downloaded and uploaded packets sum in the sampling interval
+* flows: number of flows in the sampling interval
+* avg rtt: the average round-trip time in the sampling interval
+* lost pkts: number of lost packets in the sampling interval
+* data source: measurement data source. Data sources depends on the selected aggregation criteria
+
+#### Error JSON Response
+
+```
+{
+  "status": "err",
+  "msg": "Couldn't retrieve dataset"
+}
+```

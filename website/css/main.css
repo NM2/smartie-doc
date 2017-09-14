@@ -46,10 +46,6 @@ footer p {
     margin: 0;
 }
 
-h3 {
-    font-size: 23px;
-}
-
 li {
     margin-bottom: 3px;
 }
@@ -124,4 +120,16 @@ a.nounderline:link
 img[src*="style=centerme"] {
     display:block;
     margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+}
+tr, th, td {
+    border: solid;
+    border-color: grey;
+    border-width: 1px;
+}
+th, td {
+    padding: 10px;
 }

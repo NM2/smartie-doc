@@ -86,3 +86,30 @@ menu:
                     locks:
                         text: Locks
                         relativeUrl: index.html#locks
+            api:
+                name: API
+                items:
+                    login-api:
+                        text: API login
+                        relativeUrl: index.html#api-login
+                    get-access-network-ids:
+                        text: Get access network ids
+                        relativeUrl: index.html#get-access-network-ids
+                    get-access-network-details:
+                        text: Get access network details
+                        relativeUrl: index.html#get-access-network-details
+                    get-campaigns:
+                        text: Get campaigns
+                        relativeUrl: index.html#get-campaigns
+                    get-metrics:
+                        text: Get metrics
+                        relativeUrl: index.html#get-metrics
+                    get-agents:
+                        text: Get agents
+                        relativeUrl: index.html#get-agents
+                    get-measurements:
+                        text: Get measurements
+                        relativeUrl: index.html#get-measurements
+                    get-passive-data:
+                        text: Get passive data
+                        relativeUrl: index.html#get-passive-data
