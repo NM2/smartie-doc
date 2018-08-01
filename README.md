@@ -2,6 +2,8 @@
 
 In this repository it is stored the SmarTIE documentation. The GitHub page is built from the content of the _index.md_ file and using the **Couscous** framework, instead of Jekyll (provided by GitHub).
 
+You can access the documentation by following [this link](https://nm2.github.io/smartie-doc/)
+
 Couscous helps to quickly define the template to use for the doc and dynamically creates a side menù.
 
 In the repository, there are two different branches:
